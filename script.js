@@ -1,4 +1,3 @@
-    
     const billAmount = document.querySelector("#bill-amount");
     const cashgiven = document.querySelector("#cash-given");
     const cashGivenDiv = document.querySelector(".cash-given-div");
@@ -6,14 +5,15 @@
     const outputTable = document.querySelector(".output-table")
     const nextbtn = document.querySelector(".btn-next");
     const checkbtn = document.querySelector(".btn-check");
-    const tables = document.querySelector("table");
     const errorMessage = document.querySelector(".error-message");
     const noofNotes = document.querySelectorAll(".no-of-notes");
+    
+    const availableNotes = [2000,500,100,20,10,5,1];
 
-    const availableNotes = [2000,500,200,100,20,5,1];
-
-    nextbtn.addEventListener("click", hideMessage(), nextbtnHandler());
+    // nextbtn.addEventListener("click")
+    nextbtn.addEventListener("click", nextbtnHandler);
     function nextbtnHandler(){
+        hideMessage();
         if(Number(billAmount.value)>0){
             nextbtn.style.display="none";
             cashGivenDiv.style.display="block";
@@ -23,16 +23,14 @@
         }    
     }
 
-    checkbtn.addEventListener("click", () => validateBillandCashAmnt(), clearNotes(), hideMessage());
+    checkbtn.addEventListener("click", () => validateBillandCashAmnt());
 
     function validateBillandCashAmnt(){
         hideMessage();
-        if(billAmount.value>0 && cashgiven.value>0){
+        clearNotes()
+        if(Number(billAmount.value>0) && Number(cashgiven.value)>0){
 
-            if(!Number.isInteger(cashgiven.value)){
-                showErrorMessage("Enter a number/Integer in Cash Give field")
-            }
-            if(cashgiven.value>billAmount.value){
+            if(Number(cashgiven.value)>Number(billAmount.value)){
                 const amountToReturn = cashgiven.value - billAmount.value;
                 calculateChange(amountToReturn);
             }else if(billAmount.value===cashgiven.value){

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash Register</title>
-    <link rel="stylesheet" href="main/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
@@ -13,12 +13,12 @@
         <h1>Cash Register Manager</h1>        
         <p class="description">Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
         <div class="bill-div">
-        <label for="bill-ammount">Bill Amount:</label>
+            <div class="label">Bill Amount:</div>
         <input type="number" id="bill-amount">
         <button class="btn btn-next">Next</button>
     </div>
     <div class="cash-given-div">
-        <label for="cash-given">Cash Given:</label>
+        <div class="label">Cash Given:</div>
         <input  id="cash-given" type="number">
         <button class="btn btn-check">Check</button>
     </div>
@@ -26,10 +26,9 @@
         <div class="return-change">
             <div class="label">Return Change:</div>
             <div class="output-table">
-            <table class="change-table">
+            <table>
             <tr>
                 <th>No. of Notes</th>
-                <td class="no-of-notes"></td>
                 <td class="no-of-notes"></td>
                 <td class="no-of-notes"></td>
                 <td class="no-of-notes"></td>
@@ -42,7 +41,6 @@
                 <th>Note</th>
                 <td>2000</td>
                 <td>500</td>
-                <td>200</td>
                 <td>100</td>
                 <td>20</td>
                 <td>10</td>
@@ -54,6 +52,6 @@
 </div>
     </div>
     
-    <script src="main/index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
